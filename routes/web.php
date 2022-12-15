@@ -24,9 +24,9 @@ Route::controller(NewsController::class)->prefix('admin')->group(function() {
 
 //http://XXXXXX.jp/XXX というアクセスが来たときに、 AAAControllerのbbbというAction に渡すRoutingの設定
 
-// Route::controller(aaaController::class)->group(function() {
-//     Route:get('xxx', 'bbb');
-// });
+//  Route::controller(AAAController::class)->group(function() {
+//      Route:get('xxx', 'bbb');
+//  });
 
 use App\Http\Controllers\Admin\ProfileController;
 Route::controller(ProfileController::class)->prefix('admin')->group(function() {
