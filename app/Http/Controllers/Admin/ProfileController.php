@@ -55,7 +55,7 @@ class ProfileController extends Controller
     {
         // Validationをかける
         $this->validate($request, Profile::$rules);
-        // Prifile Modelからデータを取得する
+        // Profile Modelからデータを取得する
         $profile = Profile::find($request->id);
         // 送信されてきたフォームデータを格納する
         $profile_form = $request->all();
@@ -69,7 +69,7 @@ class ProfileController extends Controller
     
     public function delete(Request $request)
     {
-        // 該当するNews Modelを取得
+        // 該当するProfile Modelを取得
         $profile = Profile::find($request->id);
 
         // 削除する
