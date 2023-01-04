@@ -44,6 +44,14 @@
                                     <th>{{ $profile->id }}</th>
                                     <td>{{ Str::limit($profile->title, 100) }}</td>
                                     <td>{{ Str::limit($profile->body, 250) }}</td>
+                                    <td>
+                                        <div>
+                                            <a href="{{ route('admin.profile.edit', ['id' => $profile->id]) }}">編集</a>
+                                        </div>
+                                        <div>
+                                            <a href="{{ route('admin.profile.delete', ['id' => $profile->id]) }}">削除</a>
+                                        </div>
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>
