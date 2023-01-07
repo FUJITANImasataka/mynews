@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 
 use App\Models\Profile;
 
+use App\Models\History;
+
+use Carbon\Carbon;
+
 class ProfileController extends Controller
 {
     public function add()
@@ -21,6 +25,8 @@ class ProfileController extends Controller
         $profile = new Profile;
         $form = $request->all();
         
+        // フォームから送信されてきた_tokenを削除する
+        unset($form['_token']);
 
         $profile->fill($form);
         $profile->save();
@@ -35,7 +41,7 @@ class ProfileController extends Controller
             // 検索されたら検索結果を取得する
             $posts = Profile::where('title', $cond_title)->get();
         } else {
-            // それ以外はすべてのニュースを取得する
+            // それ以外はすべてのプロフィールを取得する
             $posts = Profile::all();
         }
         return view('admin.profile.index', ['posts' => $posts, 'cond_title' => $cond_title]);
