@@ -15,7 +15,7 @@
                     <div class="form-group row">
                         <label class="col-md-2">プロフィール</label>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" name="cond_title" value="{{ $cond_title }}">
+                            <input type="text" class="form-control" name="cond_name" value="{{ $cond_name }}">
                         </div>
                         <div class="col-md-2">
                             @csrf
@@ -32,18 +32,15 @@
                         <thead>
                             <tr>
                                 <th width="10%">ID</th>
-                                <th width="20%">氏名</th>
-                                <th width="20%">性別</th>
-                                <th width="20%">趣味</th>
-                                <th width="50%">自己紹介</th>
+                                <th width="80%">氏名</th>
+                                <th width="10%">操作</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($posts as $profile)
+                            @foreach($data as $profile)
                                 <tr>
                                     <th>{{ $profile->id }}</th>
-                                    <td>{{ Str::limit($profile->title, 100) }}</td>
-                                    <td>{{ Str::limit($profile->body, 250) }}</td>
+                                    <td>{{ Str::limit($profile->name, 100) }}</td>
                                     <td>
                                         <div>
                                             <a href="{{ route('admin.profile.edit', ['id' => $profile->id]) }}">編集</a>
@@ -61,3 +58,4 @@
         </div>
     </div>
 @endsection
+ 
