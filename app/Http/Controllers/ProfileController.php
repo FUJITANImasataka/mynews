@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Models\Profile;
 
-class NewsController extends Controller
+class ProfileController extends Controller
 {
     public function index(Request $request)
     {
